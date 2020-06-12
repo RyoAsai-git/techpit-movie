@@ -20,6 +20,11 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    redirect_to root_path, notice: "削除しました", if @post.destroy
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :body, :video)
