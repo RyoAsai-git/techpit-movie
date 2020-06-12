@@ -1,9 +1,18 @@
 <ul class="list-unstyled">
+  <% @posts.each do |post| %>
   <li class="media">
-    動画のサムネイル
+
+
+    <%= video_tag post.video.to_s, :size => "360x200" %>
+
     <div class="media-body">
-      <h5 class="mt-0 mb-1">動画のタイトル</h5>
-      動画の説明
+
+
+      <h5 class="mt-0 mb-1"><%= post.title %></h5>
+      <%= post.body %>
+
+
     </div>
   </li>
+  <% end %>
 </ul>
